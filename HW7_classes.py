@@ -29,7 +29,7 @@ class Rna(str):
 
     def gc(self):
         GC_content = round((self.count('G') + self.count('C')) * 100 / len(self), 2)
-        return GC_content
+        return print(GC_content)
 
 
     def reverse_complement(self):
