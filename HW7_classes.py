@@ -1,37 +1,39 @@
 class Dna(str):
-
-
     def __init__(self, sequence_Dna):
-        self.sequence_Dna = sequence_Dna
+        self.sequence_Dna = sequence_Dna.upper()
+
+        nucleotides = 'ATCG'
+        for i in self.sequence_Dna:
+            if i not in nucleotides:
+                raise Exception('Your string is not DNA sequence.')
 
 
     def gc(self):
-        GC_content = round((self.count('G') + self.count('C')) * 100 / len(self), 2)
-        return print(GC_content, '%')
-
+        GC_content = round((self.sequence_Dna.count('G') + self.sequence_Dna.count('C')) * 100 / len(self.sequence_Dna), 2)
+        return GC_content
 
     def reverse_complement(self):
-        complement_sequence = self.translate(self.maketrans('ATGC', 'TACG'))
-        return print(complement_sequence)
-
+        complement_sequence = self.sequence_Dna.translate(self.sequence_Dna.maketrans('ATGC', 'TACG'))
+        return complement_sequence
 
     def transcribe(self):
-        complement_Rna = self.translate(self.maketrans('ATGC', 'UACG'))
-        return print(complement_Rna)
+        self.sequence_Rna = self.sequence_Dna.translate(self.sequence_Dna.maketrans('ATGC', 'UACG'))
+        return self.sequence_Rna
 
 
 class Rna(str):
-
-
     def __init__(self, sequence_Rna):
-        self.sequence_Rna = sequence_Rna
+        self.sequence_Rna = sequence_Rna.upper()
 
+        nucleotides = 'AUCG'
+        for i in self.sequence_Rna:
+            if i not in nucleotides:
+                raise Exception('Your string is not RNA sequence.')
 
     def gc(self):
-        GC_content = round((self.count('G') + self.count('C')) * 100 / len(self), 2)
-        return print(GC_content)
-
+        GC_content = round((self.sequence_Rna.count('G') + self.sequence_Rna.count('C'))*100/len(self.sequence_Rna), 2)
+        return GC_content
 
     def reverse_complement(self):
-        complement_sequence = self.translate(self.maketrans('AUGC', 'UACG'))
-        return print(complement_sequence)
+        complement_sequence = self.sequence_Rna.translate(self.sequence_Rna.maketrans('AUGC', 'UACG'))
+        return complement_sequence
