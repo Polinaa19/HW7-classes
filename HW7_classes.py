@@ -12,8 +12,8 @@ class Dna(str):
         return gc_content
 
     def reverse_complement(self):
-        complement_sequence = self.sequence_Dna.translate(self.sequence_Dna.maketrans('ATGC', 'TACG'))
-        return complement_sequence
+        reverse_complement_sequence = self.sequence_Dna.translate(self.sequence_Dna.maketrans('ATGC', 'TACG'))
+        return reverse_complement_sequence[::-1]
 
     def transcribe(self):
         self.sequence_Rna = self.sequence_Dna.translate(self.sequence_Dna.maketrans('ATGC', 'UACG'))
@@ -34,5 +34,5 @@ class Rna(str):
         return gc_content
 
     def reverse_complement(self):
-        complement_sequence = self.sequence_Rna.translate(self.sequence_Rna.maketrans('AUGC', 'UACG'))
-        return complement_sequence
+        reverse_complement_sequence = self.sequence_Rna.translate(self.sequence_Rna.maketrans('AUGC', 'UACG'))
+        return reverse_complement_sequence[::-1]
