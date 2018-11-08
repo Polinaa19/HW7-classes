@@ -7,10 +7,9 @@ class Dna(str):
             if i not in nucleotides:
                 raise Exception('Your string is not DNA sequence.')
 
-
     def gc(self):
-        GC_content = round((self.sequence_Dna.count('G') + self.sequence_Dna.count('C')) * 100 / len(self.sequence_Dna), 2)
-        return GC_content
+        gc_content = str(round((self.sequence_Dna.count('G') + self.sequence_Dna.count('C')) * 100 / len(self.sequence_Dna), 2)) + '%'
+        return gc_content
 
     def reverse_complement(self):
         complement_sequence = self.sequence_Dna.translate(self.sequence_Dna.maketrans('ATGC', 'TACG'))
@@ -31,8 +30,8 @@ class Rna(str):
                 raise Exception('Your string is not RNA sequence.')
 
     def gc(self):
-        GC_content = round((self.sequence_Rna.count('G') + self.sequence_Rna.count('C'))*100/len(self.sequence_Rna), 2)
-        return GC_content
+        gc_content = str(round((self.sequence_Rna.count('G') + self.sequence_Rna.count('C'))*100/len(self.sequence_Rna), 2)) + '%'
+        return gc_content
 
     def reverse_complement(self):
         complement_sequence = self.sequence_Rna.translate(self.sequence_Rna.maketrans('AUGC', 'UACG'))
