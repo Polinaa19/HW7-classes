@@ -8,7 +8,7 @@ class Dna(str):
                 raise Exception('Your string is not DNA sequence.')
 
     def gc(self):
-        gc_content = str(round((self.sequence_Dna.count('G') + self.sequence_Dna.count('C')) * 100 / len(self.sequence_Dna), 2)) + '%'
+        gc_content = str(round((self.sequence_Dna.count('G') + self.sequence_Dna.count('C'))*100/len(self.sequence_Dna), 2)) + '%'
         return gc_content
 
     def reverse_complement(self):
@@ -36,3 +36,5 @@ class Rna(str):
     def reverse_complement(self):
         reverse_complement_sequence = self.sequence_Rna.translate(self.sequence_Rna.maketrans('AUGC', 'UACG'))
         return reverse_complement_sequence[::-1]
+
+
