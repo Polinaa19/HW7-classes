@@ -17,7 +17,7 @@ class Dna(str):
 
     def transcribe(self):
         self.sequence_Rna = self.sequence_Dna.translate(self.sequence_Dna.maketrans('ATGC', 'UACG'))
-        return self.sequence_Rna
+        return self.sequence_Rna[::-1]
 
 
 class Rna(str):
